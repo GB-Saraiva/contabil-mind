@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+    <header>
+        <h2>Diário - Novo Lançamento</h2>
+    </header>
+    
+    <section class="container">
+        <form id="diarioForm">
+            <div class="input-group">
+                <label for="data">Data</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+            <div class="input-group">
+                <label for="descricao">Descrição</label>
+                <input type="text" id="descricao" name="descricao" required>
+            </div>
+            <div class="input-group">
+                <label for="categoria">Categoria</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="Despesas Operacionais">Despesas Operacionais</option>
+                    <option value="Equipamentos e Móveis">Equipamentos e Móveis</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="valor">Valor (R$)</label>
+                <input type="number" id="valor" name="valor" required>
+            </div>
+            <div class="input-group">
+                <label for="observacoes">Observações</label>
+                <textarea id="observacoes" name="observacoes" rows="3"></textarea>
+            </div>
+            <button type="submit">Salvar</button>
+        </form>
+    </section>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

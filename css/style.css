@@ -1,0 +1,195 @@
+/* Estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #5a473b; /* Marrom de fundo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Estilo para o container de login */
+.login-container {
+  background-color: #f5ebd2; /* Cor creme para o fundo */
+  padding: 20px;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-section {
+  text-align: center;
+}
+
+.logo {
+  width: 200px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 38%;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #000000; /* Tom mais escuro para o título */
+  margin-bottom: 10px;
+  position: relative;
+  left: 26%;
+}
+
+p {
+  color: #47392d;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.form-section {
+  background-color: #5a473b;
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 1rem;
+  color: #000000;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #f5ebd2;
+  font-size: 1rem;
+}
+
+.form-links {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.form-links a {
+  font-size: 0.9rem;
+  color: #868bbf;
+  text-decoration: none;
+}
+
+.login-btn {
+  background-color: #498ea0; /* Cor azul do botão */
+  color: #000000;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #357789;
+}
+
+footer {
+  margin-top: 20px;
+}
+
+footer p {
+  font-size: 0.8rem;
+  color: #8e6e4b;
+}
+
+footer a {
+  color: #868bbf;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Ícone de mostrar/ocultar senha */
+.fa-eye {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  cursor: pointer;
+  color: #272262;
+}
+
+/* Estilo para as páginas de Diário e Razão */
+.container {
+  margin: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #5a473b;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #498ea0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #357789;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #5a473b;
+  border-radius: 5px;
+}
+
+/* Estilos de header */
+header {
+  background-color: #5a473b;
+  padding: 10px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
