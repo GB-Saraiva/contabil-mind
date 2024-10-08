@@ -6,6 +6,17 @@
     <title>Balancete</title>
     <link rel="stylesheet" href="../css/estilo.css">
     <style>
+
+        textocentro {
+            justify-content: center;
+            margin-top: 10px;
+            border-collapse: collapse;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
+        }
+
         .balance-container {
             display: flex;
             justify-content: center;
@@ -39,11 +50,19 @@
 <body>
     <header>
         <nav class="navbar">
+            <a href="menu.html">Menu</a>
             <a href="diario.html">Diário</a>
             <a href="razao.html">Razão</a>
             <a href="balanco.html">Balancete</a>
         </nav>
+        <nav class="botaosair">
+            <a href="../html/index.html">Encerrar sessão</a> 
+        </nav>
     </header>
+    
+    <textocentro>
+    <h2>BALANCETE</h2>
+
     <div class="container">
         <div class="balance-container">
             <table class="balance-table">
@@ -159,5 +178,6 @@
             document.getElementById("total-passivos").innerText = `R$ ${totalPassivos.toFixed(2)}`;
         }
     </script>
+    </textocentro>
 </body>
 </html>

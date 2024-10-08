@@ -1,19 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
-    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="icon" href="../image/favicon.ico.ico" type="image/ico">
 </head>
 <body>
-    <div class="menu-container">
-        <button type="button" class="btn" onclick="window.location.href='diario.html'">
-            Diário
-        </button>
-        <button type="button" class="btn" onclick="window.location.href='razao.html'">
-            Razão
-        </button>
-    </div>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="../image/logo.imgs.png" alt="Contábil Mind">
+            </div>
+            <div class="company-info" id="company-info">
+                <h1 id="nomeEmpresa">Nome da Empresa</h1>
+                <p id="cnpj">CNPJ: </p>
+                <p id="email">Email: </p>
+                <p id="endereco">Endereço: </p>
+                <p id="telefone">Telefone: </p>
+            </div>
+            <div class="user-actions">
+                <a href="../html/index.html">Encerrar</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2>MENU</h2>
+        <div class="menu">
+            <div class="menu-item">
+                <a href="./diario.html"><p>Diário/Lançamento</p></a>
+            </div>
+            <div class="menu-item">
+                <a href="./razao.html"><p>Razão</p></a>
+            </div>
+            <div class="menu-item">
+                <a href="./balanco.html"><p>Balancete</p></a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/menu.js"></script> <!-- Arquivo JS para carregar os dados -->
 </body>
 </html>

@@ -4,6 +4,35 @@
   box-sizing: border-box;
 }
 
+.botaosair {
+  display: flex;
+  gap: 20px;
+}
+
+.botaosair a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.botaosair a:hover {
+  background-color: #ff0000;
+}
+
+main {
+    padding: 150px;
+    text-align: center;
+}
+
+h2 {
+    color: #fff;
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+
+
 body {
   font-family: "Arial", sans-serif;
   background-color: #5a473b; /* Marrom de fundo */
