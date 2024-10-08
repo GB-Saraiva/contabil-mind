@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balanço</title>
+    <title>Balancete</title>
     <link rel="stylesheet" href="../css/estilo.css">
     <style>
         .balance-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
             margin-top: 50px;
         }
-        .balance-item {
-            margin: 10px 0;
-            font-size: 1.5em;
+        .balance-table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px;
         }
-        .balance-item span {
+        .balance-table th, .balance-table td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+        .balance-table th {
+            background-color: black;
+            color: white;
+        }
+        .balance-table .total {
             font-weight: bold;
+            color: rgb(100, 0, 0);
         }
-        .despesas {
-            color: red;
-        }
-        .ganhos {
-            color: green;
-        }
-        .saldo-positivo {
-            color: green;
-        }
-        .saldo-negativo {
-            color: red;
+        .balance-table .patrimonio {
+            background-color: black;
+            color: white;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -38,16 +41,52 @@
         <nav class="navbar">
             <a href="diario.html">Diário</a>
             <a href="razao.html">Razão</a>
-            <a href="balanco.html">Balanço</a>
+            <a href="balanco.html">Balancete</a>
         </nav>
     </header>
     <div class="container">
         <div class="balance-container">
-            <div class="balance-item">Total de Despesas: <span id="total-despesas" class="despesas">R$ 0.00</span></div>
-            <div class="balance-item">Total de Ganhos: <span id="total-ganhos" class="ganhos">R$ 0.00</span></div>
-            <div class="balance-item">Saldo Total: <span id="saldo-total" class="saldo-positivo">R$ 0.00</span></div>
+            <table class="balance-table">
+                <thead>
+                    <tr>
+                        <th>ATIVO</th>
+                        <th>PASSIVO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="valor-banco">Banco: R$ 0,00</td>
+                        <td id="valor-financiamento">Financiamento: R$ 0,00</td>
+                    </tr>
+                    <tr>
+                        <td id="valor-imovel">Imóvel: R$ 0,00</td>
+                        <td id="valor-emprestimo">Empréstimo: R$ 0,00</td>
+                    </tr>
+                    <tr>
+                        <td id="valor-instalacao">Instalação: R$ 0,00</td>
+                        <td id="valor-fornecedor">Fornecedor: R$ 0,00</td>
+                    </tr>
+                    <tr>
+                        <td id="valor-equipamento">Equipamento: R$ 0,00</td>
+                        <td></td> <!-- Linha nula transparente -->
+                    </tr>
+                    <tr>
+                        <td id="valor-pecas">Peças: R$ 0,00</td>
+                        <td class="patrimonio">PATRIMÔNIO LÍQUIDO</td>
+                    </tr>
+                    <tr>
+                        <td id="valor-mercadorias">Mercadorias: R$ 0,00</td>
+                        <td id="capital-social">Capital Social: R$ 0,00</td>
+                    </tr>
+                    <tr>
+                        <td class="total">TOTAL: <span id="total-ativos">R$ 0,00</span></td>
+                        <td class="total">TOTAL: <span id="total-passivos">R$ 0,00</span></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             calcularBalanco();
@@ -56,28 +95,68 @@
         function calcularBalanco() {
             let lancamentos = JSON.parse(localStorage.getItem("lancamentos")) || [];
 
-            let totalDespesas = lancamentos
-                .filter(l => l.valor < 0)
-                .reduce((acc, lancamento) => acc + lancamento.valor, 0);
+            // Inicializando variáveis de ativos, passivos e patrimônio líquido
+            let banco = 0, imovel = 0, instalacao = 0, equipamento = 0, pecas = 0, mercadorias = 0;
+            let financiamento = 0, emprestimo = 0, fornecedor = 0;
+            let capitalSocial = 0;
 
-            let totalGanhos = lancamentos
-                .filter(l => l.valor > 0)
-                .reduce((acc, lancamento) => acc + lancamento.valor, 0);
+            // Filtrar os lançamentos com base no campo 'razao', similar ao que é feito no razonete
+            lancamentos.forEach(lancamento => {
+                switch (lancamento.razao.toLowerCase()) {
+                    case "banco":
+                        banco += Math.abs(lancamento.valor);
+                        break;
+                    case "imovel":
+                        imovel += Math.abs(lancamento.valor);
+                        break;
+                    case "instalação":
+                        instalacao += Math.abs(lancamento.valor);
+                        break;
+                    case "equipamentos":
+                        equipamento += Math.abs(lancamento.valor);
+                        break;
+                    case "peças":
+                        pecas += Math.abs(lancamento.valor);
+                        break;
+                    case "mercadoria":
+                        mercadorias += Math.abs(lancamento.valor);
+                        break;
+                    case "financiamento":
+                        financiamento += Math.abs(lancamento.valor);
+                        break;
+                    case "emprestimo a pagar":
+                        emprestimo += Math.abs(lancamento.valor);
+                        break;
+                    case "fornecedores":
+                        fornecedor += Math.abs(lancamento.valor);
+                        break;
+                    case "capital social":
+                        capitalSocial += Math.abs(lancamento.valor);
+                        break;
+                    default:
+                        break;
+                }
+            });
 
-            let saldoTotal = totalDespesas + totalGanhos;
+            // Atualizar os valores no HTML
+            document.getElementById("valor-banco").innerText = `Banco: R$ ${banco.toFixed(2)}`;
+            document.getElementById("valor-imovel").innerText = `Imóvel: R$ ${imovel.toFixed(2)}`;
+            document.getElementById("valor-instalacao").innerText = `Instalação: R$ ${instalacao.toFixed(2)}`;
+            document.getElementById("valor-equipamento").innerText = `Equipamento: R$ ${equipamento.toFixed(2)}`;
+            document.getElementById("valor-pecas").innerText = `Peças: R$ ${pecas.toFixed(2)}`;
+            document.getElementById("valor-mercadorias").innerText = `Mercadorias: R$ ${mercadorias.toFixed(2)}`;
 
-            document.getElementById("total-despesas").innerText = `R$ ${Math.abs(totalDespesas).toFixed(2)}`;
-            document.getElementById("total-ganhos").innerText = `R$ ${totalGanhos.toFixed(2)}`;
-            const saldoTotalElement = document.getElementById("saldo-total");
-            saldoTotalElement.innerText = `R$ ${saldoTotal.toFixed(2)}`;
+            document.getElementById("valor-financiamento").innerText = `Financiamento: R$ ${financiamento.toFixed(2)}`;
+            document.getElementById("valor-emprestimo").innerText = `Empréstimo: R$ ${emprestimo.toFixed(2)}`;
+            document.getElementById("valor-fornecedor").innerText = `Fornecedor: R$ ${fornecedor.toFixed(2)}`;
+            document.getElementById("capital-social").innerText = `Capital Social: R$ ${capitalSocial.toFixed(2)}`;
 
-            if (saldoTotal >= 0) {
-                saldoTotalElement.classList.remove("saldo-negativo");
-                saldoTotalElement.classList.add("saldo-positivo");
-            } else {
-                saldoTotalElement.classList.remove("saldo-positivo");
-                saldoTotalElement.classList.add("saldo-negativo");
-            }
+            // Calcular total de ativos e passivos + patrimônio líquido
+            const totalAtivos = banco + imovel + instalacao + equipamento + pecas + mercadorias;
+            const totalPassivos = financiamento + emprestimo + fornecedor + capitalSocial;
+
+            document.getElementById("total-ativos").innerText = `R$ ${totalAtivos.toFixed(2)}`;
+            document.getElementById("total-passivos").innerText = `R$ ${totalPassivos.toFixed(2)}`;
         }
     </script>
 </body>
