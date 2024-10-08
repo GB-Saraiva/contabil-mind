@@ -61,6 +61,6 @@ document
 
     // Redirecionar ou mostrar mensagem de sucesso
     alert("Cadastro realizado com sucesso!");
-    window.location.href = "../index.html"; // Redirecionar para a tela de login
+    window.location.href = "../html/index.html"; // Redirecionar para a tela de login
     
   });

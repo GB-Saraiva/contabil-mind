@@ -1,53 +1,221 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro</title>
-    <link rel="stylesheet" href="../css/estilo.css" />
-    <!-- Link para o seu CSS -->
+    <link rel="stylesheet" href="../css/cadastro.css" />
+    <link rel="icon" href="../image/favicon.ico.ico" type="image/ico" />
   </head>
   <body>
-    <h1>Cadastro da Empresa</h1>
-    <form id="cadastroForm">
-      <label for="nomeEmpresa">Nome da Empresa:</label>
-      <input type="text" id="nomeEmpresa" required /><br />
+    <div class="cadastro-container">
+      <div class="cadastro-box">
+        <div class="header-container">
+          <img
+            src="../image/logo.imgs.png"
+            alt="Contabil Mind Logo"
+            class="logo"
+          />
+          <div class="texto-titulo">
+            <h1>Crie sua conta!</h1>
+          </div>
+        </div>
 
-      <label for="cnpj">CNPJ:</label>
-      <input type="text" id="cnpj" required /><br />
+        <div class="form-section">
+          <form id="cadastroForm">
+            <!-- Note que mantemos o id 'cadastroForm' para o JavaScript -->
 
-      <label for="email">Email Corporativo:</label>
-      <input type="email" id="email" required /><br />
+            <div class="input-group">
+              <label for="nomeEmpresa">Nome da Empresa</label>
+              <input type="text" id="nomeEmpresa" required />
+              <!-- ID mantido -->
+            </div>
 
-      <label for="telefone">Telefone Comercial:</label>
-      <input type="text" id="telefone" required /><br />
+            <div class="input-group">
+              <label for="cnpj">CNPJ</label>
+              <input
+                type="text"
+                id="cnpj"
+                required
+                title="Insira um CNPJ válido com 14 dígitos"
+              />
+              <!-- ID mantido -->
+            </div>
 
-      <label for="estado">Estado:</label>
-      <input type="text" id="estado" required /><br />
+            <div class="input-group">
+              <label for="email">Email Corporativo</label>
+              <input type="email" id="email" required />
+              <!-- ID mantido -->
+            </div>
 
-      <label for="cidade">Cidade:</label>
-      <input type="text" id="cidade" required /><br />
+            <div class="input-group">
+              <label for="telefone">Telefone Comercial</label>
+              <input
+                type="tel"
+                id="telefone"
+                required
+                pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
+                title="Insira um número de telefone válido"
+              />
+              <!-- ID mantido -->
+            </div>
 
-      <label for="cep">CEP:</label>
-      <input type="text" id="cep" required /><br />
+            <div class="input-group">
+              <label for="estado">Estado</label>
+              <select id="estado" required>
+                <!-- ID mantido -->
+                <option value="" disabled selected>Selecione um estado</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+              </select>
+            </div>
 
-      <label for="bairro">Bairro:</label>
-      <input type="text" id="bairro" required /><br />
+            <div class="input-group">
+              <label for="cidade">Cidade</label>
+              <input type="text" id="cidade" required />
+              <!-- ID mantido -->
+            </div>
 
-      <label for="complemento">Complemento (opcional):</label>
-      <input type="text" id="complemento" /><br />
+            <div class="input-group">
+              <label for="cep">CEP</label>
+              <input
+                type="text"
+                id="cep"
+                required
+                pattern="\d{5}-\d{3}"
+                title="Insira um CEP válido no formato 00000-000"
+              />
+              <!-- ID mantido -->
+            </div>
 
-      <label for="nomeResponsavel">Nome do Responsável:</label>
-      <input type="text" id="nomeResponsavel" required /><br />
+            <div class="input-group">
+              <label for="bairro">Bairro</label>
+              <input type="text" id="bairro" required />
+              <!-- ID mantido -->
+            </div>
 
-      <label for="senha">Senha:</label>
-      <input type="password" id="senha" required /><br />
+            <div class="input-group">
+              <label for="complemento">Complemento (opcional)</label>
+              <input type="text" id="complemento" />
+              <!-- ID mantido -->
+            </div>
 
-      <label for="confirmarSenha">Confirmar Senha:</label>
-      <input type="password" id="confirmarSenha" required /><br />
+            <div class="input-group">
+              <label for="nomeResponsavel">Nome do Responsável</label>
+              <input type="text" id="nomeResponsavel" required />
+              <!-- ID mantido -->
+            </div>
 
-      <button type="submit">Cadastrar</button>
-    </form>
+            <div class="input-group">
+              <label for="senha">Senha</label>
+              <input type="password" id="senha" required />
+              <!-- ID mantido -->
+            </div>
+
+            <div class="input-group">
+              <label for="confirmarSenha">Confirmar Senha</label>
+              <input type="password" id="confirmarSenha" required />
+              <!-- ID mantido -->
+            </div>
+
+            <button type="submit" class="cadastro-btn">
+              Cadastrar Empresa <span>&#x27A4;</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Formatação do telefone
+      document
+        .getElementById("telefone")
+        .addEventListener("input", function (event) {
+          let input = event.target;
+          let value = input.value.replace(/\D/g, ""); // Remove tudo que não for dígito
+
+          if (value.length > 10) {
+            value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, "($1) $2-$3");
+          } else if (value.length > 5) {
+            value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+          } else if (value.length > 2) {
+            value = value.replace(/^(\d{2})(\d{0,5})/, "($1) $2");
+          } else {
+            value = value.replace(/^(\d{0,2})/, "($1");
+          }
+
+          input.value = value; // Atualiza o valor do input com a máscara
+        });
+
+      // Formatação do CNPJ
+      document
+        .getElementById("cnpj")
+        .addEventListener("input", function (event) {
+          let input = event.target;
+          let value = input.value.replace(/\D/g, ""); // Remove tudo que não for dígito
+
+          if (value.length > 13) {
+            value = value.substring(0, 14); // Limita a 14 dígitos
+          }
+
+          if (value.length > 12) {
+            value = value.replace(
+              /^(\d{2})(\d{3})(\d{3})(\d{4})(\d{0,2}).*/,
+              "$1.$2.$3/$4-$5"
+            );
+          } else if (value.length > 8) {
+            value = value.replace(
+              /^(\d{2})(\d{3})(\d{3})(\d{0,4})/,
+              "$1.$2.$3/$4"
+            );
+          } else if (value.length > 5) {
+            value = value.replace(/^(\d{2})(\d{3})(\d{0,3})/, "$1.$2.$3");
+          } else if (value.length > 2) {
+            value = value.replace(/^(\d{2})(\d{0,3})/, "$1.$2");
+          }
+
+          input.value = value; // Atualiza o valor do input com a máscara
+        });
+
+      // Formatação do CEP
+      document
+        .getElementById("cep")
+        .addEventListener("input", function (event) {
+          let input = event.target;
+          let value = input.value.replace(/\D/g, ""); // Remove tudo que não for dígito
+
+          if (value.length > 5) {
+            value = value.replace(/^(\d{5})(\d{0,3})/, "$1-$2");
+          }
+
+          input.value = value; // Atualiza o valor do input com a máscara
+        });
+    </script>
 
     <script src="../js/cadastro.js"></script>
   </body>

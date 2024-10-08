@@ -1,0 +1,127 @@
+* {
+    margin: 10;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #5A473B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.cadastro-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Mudei para flex-start para alinhar ao topo */
+    height: 100%; /* Ajuste para evitar problemas de altura */
+    background-color: #f5ebd2; 
+}
+
+.cadastro-box {
+    background-color: #f5ebd2;
+    padding: 80px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Contêiner para imagem e título */
+.header-container {
+    display: flex; /* Flexbox para alinhar a imagem e o título lado a lado */
+    flex-direction: column; /* Colocar a imagem acima do título */
+    align-items: center; /* Centraliza a imagem e o título horizontalmente */
+    margin-bottom: 20px; /* Espaçamento abaixo do contêiner */
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 10px; /* Espaço entre a logo e o título */
+}
+
+.texto-titulo h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-section {
+    margin-top: 20px;
+    display: block; /* Garante que a seção do formulário use um layout em bloco */
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%; /* Largura total do contêiner pai */
+    padding: 12px; /* Aumenta o espaço interno para mais altura */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px; /* Ajusta o tamanho da fonte */
+    box-sizing: border-box; /* Inclui padding e bordas no cálculo de largura e altura */
+}
+
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #007bff; /* Cor do contorno ao focar */
+    outline: none;
+}
+
+.cadastro-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #498ea0; /* Cor do botão */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cadastro-btn:hover {
+    background-color: rgb(0, 63, 130); /* Cor ao passar o mouse */
+}
+
+.form-links {
+    margin-top: 15px;
+}
+
+.form-links a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.form-links a:hover {
+    text-decoration: none;
+}
+
+.termos-uso {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #777;
+}
+
+.termos-uso a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.termos-uso a:hover {
+    text-decoration: underline;
+}
