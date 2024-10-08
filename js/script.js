@@ -19,7 +19,7 @@ document
     // Verificando se o email e a senha estão corretos
     if (usuario.email === email && usuario.senha === senha) {
       alert("Login bem-sucedido!");
-      window.location.href = "html/menu.html"; // Redirecionar para o menu
+      window.location.href = "menu.html"; // Redirecionar para o menu
     } else {
       alert("Email ou senha incorretos.");
     }

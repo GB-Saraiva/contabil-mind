@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balanço</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <style>
+        .balance-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .balance-item {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+        .balance-item span {
+            font-weight: bold;
+        }
+        .despesas {
+            color: red;
+        }
+        .ganhos {
+            color: green;
+        }
+        .saldo-positivo {
+            color: green;
+        }
+        .saldo-negativo {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="diario.html">Diário</a>
+            <a href="razao.html">Razão</a>
+            <a href="balanco.html">Balanço</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="balance-container">
+            <div class="balance-item">Total de Despesas: <span id="total-despesas" class="despesas">R$ 0.00</span></div>
+            <div class="balance-item">Total de Ganhos: <span id="total-ganhos" class="ganhos">R$ 0.00</span></div>
+            <div class="balance-item">Saldo Total: <span id="saldo-total" class="saldo-positivo">R$ 0.00</span></div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            calcularBalanco();
+        });
+
+        function calcularBalanco() {
+            let lancamentos = JSON.parse(localStorage.getItem("lancamentos")) || [];
+
+            let totalDespesas = lancamentos
+                .filter(l => l.valor < 0)
+                .reduce((acc, lancamento) => acc + lancamento.valor, 0);
+
+            let totalGanhos = lancamentos
+                .filter(l => l.valor > 0)
+                .reduce((acc, lancamento) => acc + lancamento.valor, 0);
+
+            let saldoTotal = totalDespesas + totalGanhos;
+
+            document.getElementById("total-despesas").innerText = `R$ ${Math.abs(totalDespesas).toFixed(2)}`;
+            document.getElementById("total-ganhos").innerText = `R$ ${totalGanhos.toFixed(2)}`;
+            const saldoTotalElement = document.getElementById("saldo-total");
+            saldoTotalElement.innerText = `R$ ${saldoTotal.toFixed(2)}`;
+
+            if (saldoTotal >= 0) {
+                saldoTotalElement.classList.remove("saldo-negativo");
+                saldoTotalElement.classList.add("saldo-positivo");
+            } else {
+                saldoTotalElement.classList.remove("saldo-positivo");
+                saldoTotalElement.classList.add("saldo-negativo");
+            }
+        }
+    </script>
+</body>
+</html>

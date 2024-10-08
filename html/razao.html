@@ -5,49 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Razão</title>
     <link rel="stylesheet" href="../css/estilo.css">
+    <style>
+        .card .positive, .card .negative {
+            width: 45%;
+        }
+        .divider {
+            width: 1px;
+            background-color: #ccc;
+            height: auto;
+        }
+        .positive p {
+            color: green;
+        }
+        .negative p {
+            color: red;
+        }
+
+        
+    </style>
 </head>
 <body>
     <header>
-        <div class="header-info">
-            <h2>Razão - Texugo Dairy</h2>
-            <button id="logoutBtn">Encerrar</button>
-        </div>
+        <nav class="navbar">
+            <a href="diario.html">Diário</a>
+            <a href="razao.html">Razão</a>
+            <a href="balanco.html">Balanço</a>
+        </nav>
     </header>
-    <div>
-
-        <section class="container">
-
-            <div class="saldo">
-                <h3>Saldo Total: R$ <span id="saldo-total">0.00</span></h3>
-            </div>
-
-            <div class="form-container">
-                <input type="text" id="descricao" placeholder="Descrição" class="input-field">
-                <input type="number" id="valor" placeholder="Valor" class="input-field">
-                <select id="tipo" class="input-field">
-                    <option value="expense">Débito</option>
-                    <option value="income">Crédito</option>
-                </select>
-                <input type="date" id="data" class="input-field">
-                <button id="addLancamentoBtn" class="btn">Adicionar</button>
-            </div>
-            <table id="tabela-razao">
-                <thead>
-                    <tr>
-                        <th>Data</th>
-                        <th>Descrição</th>
-                        <th>Categoria</th>
-                        <th>Valor (R$)</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody id="tabela-corpo">
-                    <!-- Linhas inseridas dinamicamente -->
-                </tbody>
-            </table>
-        </section>
+    <div class="container">
+        <div id="cards-container" class="cards-container">
+            <!-- Cards will be dynamically inserted here -->
+        </div>
     </div>
-
     <script src="../js/controleGanhos.js"></script>
 </body>
 </html>

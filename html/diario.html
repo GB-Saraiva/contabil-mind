@@ -3,43 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diário</title>
+    <title>Razão</title>
     <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
     <header>
-        <h2>Diário - Novo Lançamento</h2>
+        <nav class="navbar">
+            <a href="diario.html">Diário</a>
+            <a href="razao.html">Razão</a>
+            <a href="balanco.html">Balanço</a>
+        </nav>
     </header>
-    
-    <section class="container">
-        <form id="diarioForm">
-            <div class="input-group">
-                <label for="data">Data</label>
-                <input type="date" id="data" name="data" required>
+    <div>
+        <section class="container">
+            <div class="saldo">
+                <h3>Saldo Total: R$ <span id="saldo-total">0.00</span></h3>
             </div>
-            <div class="input-group">
-                <label for="descricao">Descrição</label>
-                <input type="text" id="descricao" name="descricao" required>
-            </div>
-            <div class="input-group">
-                <label for="categoria">Categoria</label>
-                <select id="categoria" name="categoria" required>
-                    <option value="Despesas Operacionais">Despesas Operacionais</option>
-                    <option value="Equipamentos e Móveis">Equipamentos e Móveis</option>
+            <div class="form-container">
+                <input type="text" id="descricao" placeholder="Descrição" class="input-field">
+                <input type="number" id="valor" placeholder="Valor" class="input-field">
+                <select id="tipo" class="input-field">
+                    <option value="expense">Despesa</option>
+                    <option value="income">Ganhos</option>
                 </select>
+                <input type="date" id="data" class="input-field">
+                <input type="text" id="conta" placeholder="Conta" class="input-field">
+                <select id="razao" class="input-field">
+                    <option value="Imovel">Imovel</option>
+                    <option value="Caixa">Caixa</option>
+                    <option value="Capital Social">Capital Social</option>
+                    <option value="Financiamento">Financiamento</option>
+                    <option value="Instalação">Instalação</option>
+                    <option value="Equipamentos">Equipamentos</option>
+                    <option value="Emprestimo a Pagar">Emprestimo a Pagar</option>
+                    <option value="Peças">Peças</option>
+                    <option value="Banco">Banco</option>
+                    <option value="Mercadoria">Mercadoria</option>
+                    <option value="Fornecedores">Fornecedores</option>
+                </select>
+                <button id="addLancamentoBtn" class="btn">Adicionar</button>
             </div>
-            <div class="input-group">
-                <label for="valor">Valor (R$)</label>
-                <input type="number" id="valor" name="valor" required>
+            <div class="filter-container">
+                <input type="date" id="data-inicio" class="input-field" placeholder="Data Início">
+                <input type="date" id="data-fim" class="input-field" placeholder="Data Fim">
+                <button id="filtrarBtn" class="btn">Filtrar</button>
             </div>
-            <div class="input-group">
-                <label for="observacoes">Observações</label>
-                <textarea id="observacoes" name="observacoes" rows="3"></textarea>
-            </div>
-            <button type="submit">Salvar</button>
-        </form>
-    </section>
-
-    <script src="/js/script.js"></script>
+            <table id="tabela-razao">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Descrição</th>
+                        <th>Razão</th>
+                        <th>Valor (R$)</th>
+                        <th>Conta</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-corpo">
+                    <!-- Linhas inseridas dinamicamente -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="../js/controleGanhos.js"></script>
 </body>
 </html>
