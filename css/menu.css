@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -19,28 +18,43 @@ header {
 .header-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* Alinhamento no topo */
 }
 
 .logo img {
-    width: 100px;
+    width: 180px;
+    margin-right: 20px; /* Espaçamento entre logo e informações da empresa */
 }
 
 .company-info {
     text-align: left;
     color: black;
+    margin-right: auto; /* Faz a empresa ficar à esquerda */
+}
+
+.user-actions {
+    display: flex;
+    flex-direction: column; /* Organiza "Conta" e "Encerrar" em coluna */
+    align-items: flex-end;
+    margin-right: 100px; /* Ajusta o afastamento da borda direita */
+    margin-top: 30px; /* Afastamento da borda superior */
 }
 
 .user-actions a {
     color: black;
     text-decoration: none;
-    margin-left: 20px;
+    margin-bottom: 10px;
     font-size: 1.2em;
+    position: relative; /* Adiciona posicionamento relativo para o ícone */
+}
+
+.user-actions a i {
+    margin-right: 8px; /* Espaçamento entre ícone e texto */
 }
 
 main {
     background-color: #634343;
-    padding: 150px;
+    padding: 129px 129px; /* Reduz o padding superior */
     text-align: center;
 }
 
@@ -56,67 +70,25 @@ h2 {
 }
 
 .menu-item {
-    background-color: #F5EACE;
-    padding: 100px;
-    width: 100px;
-    height: 100px;
+    background-color: #E1B7E1; /* Azul Claro */
+    padding: 80px; /* Mantém o padding */
+    width: 100px; /* Largura original */
+    height: 100px; /* Altura original */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-size: 1.2em;
-    color: black;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    color: rgb(0, 0, 0); /* Cor do texto alterada para branco */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Animação suave para todas as propriedades */
 }
 
 .menu-item:hover {
-    background-color: #e0d0b5;
+    transform: translateY(-5px) scale(1.2); /* Levanta um pouco ao passar o mouse */
+    background-color: #F5EACE; /* Cor de fundo ao passar o mouse */
 }
 
-.menu-item a {
-    text-decoration: none;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+.menu-item p {
+    margin: 0;
 }
-
-/* Estilização para tornar os botões completamente clicáveis */
-.menu-item a {
-    text-decoration: none;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    position: absolute; /* Novo estilo */
-    top: 0; /* Novo estilo */
-    left: 0; /* Novo estilo */
-}
-
-.menu-item {
-    position: relative; /* Novo estilo */
-    background-color: #F5EACE;
-    padding: 100px;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-size: 1.2em;
-    color: black;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.menu-item:hover {
-    background-color: #e0d0b5;
-}
-

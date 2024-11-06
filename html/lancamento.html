@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+<style>
+
+        textocentro {
+            justify-content: center;
+            margin-top: 10px;
+            border-collapse: collapse;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
+        }
+</style>
+
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="menu.html">Menu</a>
+            <a href="lancamento.html">Lançamento</a>
+            <a href="diario.html">Diário</a>
+            <a href="razao.html">Razão</a>
+            <a href="balanco.html">Balancete</a>
+        </nav>
+        <nav class="botaosair">
+                <a href="../html/index.html">Encerrar sessão</a> 
+        </nav>
+    </header>
+<textocentro>
+    <h2>LANÇAMENTOS</h2>
+
+    <div>
+        <section class="container">
+            <div class="saldo">
+                <h3>Saldo Total: R$ <span id="saldo-total">0.00</span></h3>
+            </div>
+            <div class="form-container">
+                <input type="text" id="descricao" placeholder="Descrição" class="input-field">
+                <input type="number" id="valor" placeholder="Valor" class="input-field">
+                <select id="tipo" class="input-field">
+                    <option value="expense">Despesa</option>
+                    <option value="income">Ganhos</option>
+                    <option value="income">Ativos</option>
+                    <option value="expense">Passivos</option>
+                </select>
+                <input type="date" id="data" class="input-field">
+                <input type="text" id="conta" placeholder="Conta" class="input-field">
+                <select id="razao" class="input-field">
+                    <option value="Imovel">Imovel</option>
+                    <option value="Caixa">Caixa</option>
+                    <option value="Capital Social">Capital Social</option>
+                    <option value="Financiamento">Financiamento</option>
+                    <option value="Instalação">Instalação</option>
+                    <option value="Equipamentos">Equipamentos</option>
+                    <option value="Emprestimo a Pagar">Emprestimo a Pagar</option>
+                    <option value="Peças">Peças</option>
+                    <option value="Banco">Banco</option>
+                    <option value="Mercadoria">Mercadoria</option>
+                    <option value="Fornecedores">Fornecedores</option>
+                </select>
+                <button id="addLancamentoBtn" class="btn">Adicionar</button>
+            </div>
+        </section>
+    </div>
+    <script src="../js/controleGanhos.js"></script>
+</textocentro>
+</body>
+</html>
